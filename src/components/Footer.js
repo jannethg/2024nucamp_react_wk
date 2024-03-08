@@ -1,4 +1,4 @@
-import { Containe, Row, Col, Container } from "reactstrap";
+import { Row, Col, Container } from "reactstrap";
 
 const Footer = () => {
     return (
