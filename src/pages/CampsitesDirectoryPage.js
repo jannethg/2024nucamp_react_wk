@@ -3,23 +3,34 @@ import CampsiteDetail from '../features/campsites/CampsiteDetail';
 import CampsitesList from "../features/campsites/CampsitesList";
 import { selectRandomCampsite } from "../features/campsites/campsitesSlice";
 
-//create a campsite Page component
+
 const CampsitesDirectoryPage = () => {
-    // temporarily setup a local variable name selectedCampsite.
-    // we'll assign as its value the return value from invoking the select random campsite function 
-    // that we imported, which simply be a random campsite object from our campsite's array.
-    const selectedCampsite = selectRandomCampsite();
+    let selectedCampsite = selectRandomCampsite();
+ 
+    // add a button to do something when clicked
+    // create a function call ToggleCampsite and its going to be an arrow function 
+    // we'll set selectedCampsite to the return value of selectRandom campsite. 
+    // we'll also need to change the initial declaration from a const to a let 
+    // because otherwise we won't be able to change it.
 
-    // render a container component, creates a responsive app that adjust to different viewport sizes.    
-    // inside the Col component, we'll give each of these columns two props
-    // set the proportion of the row at different viewport sizes. 
+    // now in the button we can pass in a prop of onClick and set that equal to some Javascript: toggleCampsite
+    // inside the curley braces, we'll write an arrow function
+    // then inside we write an arrow function that returns an invocation of the click Handler toggleCampsite.
 
-    // Add CampsiteDetail to the second col, we need to pass in a Prop to tell it which campsite's
-    // detail to render, which is the selectedCampsite 
+    // what we're expecting is when a userclicks on this button, this click handler function will run.
+    // the selected campsite variable will be updated and logged to the console.
 
-    // seletedCampsite is a Javascript variable, so we need it in curley braces. 
+
+    const toggleCampsite = () => {
+        selectedCampsite = selectRandomCampsite();
+        console.log(selectedCampsite);
+    } 
+
     return (
             <Container>
+                <Button onClick={() => toggleCampsite()}>
+                    Select Random Campsite
+                </Button>
                 <Row>                    
                     <Col sm='5' md='7'>
                     <CampsitesList />
