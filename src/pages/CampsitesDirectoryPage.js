@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Container, Row, Col, Button } from "reactstrap";
 import CampsiteDetail from '../features/campsites/CampsiteDetail';
 import CampsitesList from "../features/campsites/CampsitesList";
@@ -5,30 +6,25 @@ import { selectRandomCampsite } from "../features/campsites/campsitesSlice";
 
 
 const CampsitesDirectoryPage = () => {
-    let selectedCampsite = selectRandomCampsite();
- 
-    // add a button to do something when clicked
-    // create a function call ToggleCampsite and its going to be an arrow function 
-    // we'll set selectedCampsite to the return value of selectRandom campsite. 
-    // we'll also need to change the initial declaration from a const to a let 
-    // because otherwise we won't be able to change it.
+  //Add a call to useState, we know that useState will return an array and that we'll use an array Destructuring on that array
+  //Destructure the local state value as selectedCampsite, along with a function to update that state toggleCampsite
+  //we can set the return value from UseState and as we're invoking useState, we want to pass to it as an argument as
+  //the initial value for the selected campsite will be the selectRandomCampsite function.
 
-    // now in the button we can pass in a prop of onClick and set that equal to some Javascript: toggleCampsite
-    // inside the curley braces, we'll write an arrow function
-    // then inside we write an arrow function that returns an invocation of the click Handler toggleCampsite.
+  //the value of the seletedCampsite is an entire campsite object. 
 
-    // what we're expecting is when a userclicks on this button, this click handler function will run.
-    // the selected campsite variable will be updated and logged to the console.
+//   when a button is clicked, we want to update the selectedCampsite with the new random campsite object
+//   the toggleCampsite we're using here as the onclick event handler, is now defined by react,
+//   and passed back to use from our call to useState
 
+// this function needs us to give a value, by passing the return value from another call to selectRandonCampsite
 
-    const toggleCampsite = () => {
-        selectedCampsite = selectRandomCampsite();
-        console.log(selectedCampsite);
-    } 
+// so selectRandomCampsite will pull a random campsite
+  const [selectedCampsite, toggleCampsite] = useState(selectRandomCampsite());
 
     return (
             <Container>
-                <Button onClick={() => toggleCampsite()}>
+                <Button onClick={() => toggleCampsite(selectRandomCampsite())}>
                     Select Random Campsite
                 </Button>
                 <Row>                    
