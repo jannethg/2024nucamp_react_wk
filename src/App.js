@@ -9,7 +9,6 @@ import './App.css';
 import AboutPage from './pages/AboutPage.js';
 
 
-
 function App() {
   return (
     <div className="App">

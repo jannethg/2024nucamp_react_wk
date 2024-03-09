@@ -1,5 +1,3 @@
-import { PARTNERS } from "../../app/shared/PARTNERS";
-
 const Partner = ({partner}) => {
     if (partner) {
         const { image, name, description} = partner;
