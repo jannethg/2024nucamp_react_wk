@@ -2,12 +2,10 @@ import { Col, Row } from "reactstrap";
 import DisplayCard from './DisplayCard';
 import { selectFeaturedCampsite } from "../campsites/campsitesSlice";
 import { selectFeaturedPromotion } from "../promotions/promotionsSlice";
+import { selectFeaturedPartner } from "../partners/partnersSlice";
 
-const DisplayList = () => {
-    //set up an array named items and store two items.
-    //first item is returned form invoking the selectFeaturedCampsite function
-    //second item will be the promotion object from invoking the selectFeaturedPromotion function.
-    const items = [selectFeaturedCampsite(), selectFeaturedPromotion()];
+const DisplayList = () => {    
+    const items = [selectFeaturedCampsite(), selectFeaturedPromotion(), selectFeaturedPartner()];
 
     return (
         <Row>

@@ -1,10 +1,6 @@
 import { Col, Row, Breadcrumb, BreadcrumbItem } from "reactstrap";
 import { Link } from "react-router-dom";
 
-//create a subheader component and passing two props
-//we'll destructure both props now in the parameter list
-
-
 const SubHeader = ({ current, detail }) => {
     return (
         <Row>
