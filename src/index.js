@@ -15,6 +15,8 @@ import 'typeface-open-sans';
 const container = document.getElementById('root');
 const root = createRoot(container);
 
+// console.log('store dispatch: ', store.dispatch);
+// console.log('store getState: ', store.getState());
 root.render(
   <React.StrictMode>
     <Provider store={store}>
