@@ -1,10 +1,3 @@
-// import { COMMENTS } from '../../app/shared/COMMENTS';
-
-// export const selectCommentsByCampsiteId = (campsideId) => {
-//         return COMMENTS.filter((comment) => comment.campsiteId === parseInt(campsideId) )
-// };
-
-
 import { createSlice } from '@reduxjs/toolkit';
 import { COMMENTS } from '../../app/shared/COMMENTS';
 
