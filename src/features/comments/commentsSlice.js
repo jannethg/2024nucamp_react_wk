@@ -1,17 +1,26 @@
-//we use the slice files as a way to organize the logic, dealing with different sections of our application state
-//the comments slice file will deal with comments data
+// import { COMMENTS } from '../../app/shared/COMMENTS';
 
-//import the COMMENT data for the comments array
+// export const selectCommentsByCampsiteId = (campsideId) => {
+//         return COMMENTS.filter((comment) => comment.campsiteId === parseInt(campsideId) )
+// };
 
-// we'll export const for a function name selectCommentsbyCampsiteId
-// this function will take a parameter of campsideId, this is the id that we want to match
-// then in its body, we'll return a new array COMMENTS which we'll get from filtering the entire comments array
-// for only the comments with the campsiteID property, that matches the campsite Id that was passed in as an argument.
-// we'll make sure to convert the campsiteID to an integer parseInt(campsiteId), since we passed it as a string. 
-//notice that we use filter, not find because we want to return an array of comments, not just the first comment
 
+import { createSlice } from '@reduxjs/toolkit';
 import { COMMENTS } from '../../app/shared/COMMENTS';
 
-export const selectCommentsByCampsiteId = (campsideId) => {
-        return COMMENTS.filter((comment) => comment.campsiteId === parseInt(campsideId) )
+const initialState = {
+    commentsArray: COMMENTS
+};
+
+const commentsSlice = createSlice({
+    name: 'comments',
+    initialState
+});
+
+export const commentsReducer = commentsSlice.reducer;
+
+export const selectCommentsByCampsiteId = (campsiteId) => (state) => {
+    return state.comments.commentsArray.filter(
+        (comment) => comment.campsiteId === parseInt(campsiteId)
+    );
 };
